@@ -3,16 +3,18 @@ import 'package:provider/provider.dart';
 import 'package:provider_crud_app/provider/homeprovider.dart';
 import 'package:provider_crud_app/utils/global.dart';
 
+import 'component/aletdialod.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState>  formkey = GlobalKey<FormState>();
+    GlobalKey<FormState> formkey = GlobalKey<FormState>();
     HomeProvider providertrue =
-        Provider.of<HomeProvider>(context, listen: true);
+    Provider.of<HomeProvider>(context, listen: true);
     HomeProvider providerfalse =
-        Provider.of<HomeProvider>(context, listen: false);
+    Provider.of<HomeProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -25,12 +27,14 @@ class HomePage extends StatelessWidget {
         children: [
           ...List.generate(
               providertrue.studentdata.length,
-              (index) => Card(
+                  (index) =>
+                  Card(
                     child: ListTile(
                       leading: Text('${index + 1}'),
                       title: Text('${providertrue.studentdata[index].name}'),
                       subtitle: Text(
-                          '${providertrue.studentdata[index].id}\n${providertrue.studentdata[index].dateTime}'),
+                          '${providertrue.studentdata[index].id}\n${providertrue
+                              .studentdata[index].dateTime}'),
                       trailing: Container(
                         width: 100,
                         child: Row(
@@ -44,7 +48,8 @@ class HomePage extends StatelessWidget {
                                       providertrue.studentdata[index].name;
                                   showDialog(
                                       context: context,
-                                      builder: (context) => AlertDialog(
+                                      builder: (context) =>
+                                          AlertDialog(
                                             title: Padding(
                                               padding: const EdgeInsets.all(2),
                                               child: Form(
@@ -54,17 +59,17 @@ class HomePage extends StatelessWidget {
                                                     TextFormField(
                                                       controller: txtname,
                                                       decoration: InputDecoration(
-                                                          label: Text('Name'),
+                                                          label: Text('Task'),
                                                           border: OutlineInputBorder(
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10),
+                                                              BorderRadius
+                                                                  .circular(
+                                                                  10),
                                                               borderSide:
-                                                                  BorderSide(
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      width: 2))),
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .blue,
+                                                                  width: 2))),
                                                     ),
                                                     SizedBox(
                                                       height: 20,
@@ -74,17 +79,17 @@ class HomePage extends StatelessWidget {
                                                       maxLines: 2,
                                                       decoration: InputDecoration(
                                                           label:
-                                                              Text('Description'),
+                                                          Text('Description'),
                                                           border: OutlineInputBorder(
                                                               borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10),
+                                                              BorderRadius
+                                                                  .circular(
+                                                                  10),
                                                               borderSide:
-                                                                  BorderSide(
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      width: 2))),
+                                                              BorderSide(
+                                                                  color: Colors
+                                                                      .blue,
+                                                                  width: 2))),
                                                     ),
                                                   ],
                                                 ),
@@ -93,23 +98,27 @@ class HomePage extends StatelessWidget {
                                             actions: [
                                               TextButton(
                                                   onPressed: () {
-                                                   if(formkey.currentState!.validate())
-                                                     {
-                                                       Navigator.of(context).pop();
-                                                       providerfalse.updatestudent(
-                                                           txtid!.text,
-                                                           txtname!.text,
-                                                           DateTime.now(),
-                                                           index);
-                                                       ScaffoldMessenger.of(
-                                                           context)
-                                                           .showSnackBar(SnackBar(
-                                                         content:
-                                                         Text('Update Save'),
-                                                         duration:
-                                                         Duration(seconds: 2),
-                                                       ));
-                                                     }
+                                                    if (formkey.currentState!
+                                                        .validate()) {
+                                                      Navigator.of(context)
+                                                          .pop();
+                                                      providerfalse
+                                                          .updatestudent(
+                                                          txtid!.text,
+                                                          txtname!.text,
+                                                          DateTime.now(),
+                                                          index);
+                                                      ScaffoldMessenger.of(
+                                                          context)
+                                                          .showSnackBar(
+                                                          SnackBar(
+                                                            content:
+                                                            Text('Update Save'),
+                                                            duration:
+                                                            Duration(
+                                                                seconds: 2),
+                                                          ));
+                                                    }
                                                   },
                                                   child: Text('Save'))
                                             ],
@@ -130,67 +139,7 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-              title: Padding(
-                padding: const EdgeInsets.all(2),
-                child: Form(
-                  key: formkey,
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        validator: (value) {
-                          return value!.isEmpty?"This deatils is mandatory":null;
-                        },
-                        controller: txtname,
-                        decoration: InputDecoration(
-                            label: Text('Name'),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide:
-                                    BorderSide(color: Colors.blue, width: 2))),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextFormField(
-                        validator: (value) {
-                          return value!.isEmpty?"This deatils is mandatory":null;
-                        },
-                        controller: txtid,
-                        maxLines: 2,
-                        decoration: InputDecoration(
-                            label: Text('Description'),
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide:
-                                    BorderSide(color: Colors.blue, width: 2))),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              actions: [
-                TextButton(
-                    onPressed: () {
-                     if(formkey.currentState!.validate())
-                       {
-                         Navigator.of(context).pop();
-                         providerfalse.addstudent(
-                             txtid!.text, txtname!.text, DateTime.now());
-                         txtname.clear();
-                         txtid.clear();
-                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                           content: Text('Task Save'),
-                           duration: Duration(seconds: 2),
-                         ));
-                       }
-                    },
-                    child: Text('Save'))
-              ],
-            ),
-          );
+          alertdialog(context, formkey, providerfalse);
         },
         child: Icon(Icons.add),
       ),
