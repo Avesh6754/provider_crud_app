@@ -19,6 +19,7 @@ Future<dynamic> alertdialog(BuildContext context, GlobalKey<FormState> formkey, 
                 },
                 controller: txtname,
                 decoration: InputDecoration(
+
                     label: Text('Task'),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
