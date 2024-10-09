@@ -8,6 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<FormState>  formkey = GlobalKey<FormState>();
     HomeProvider providertrue =
         Provider.of<HomeProvider>(context, listen: true);
     HomeProvider providerfalse =
@@ -17,6 +18,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.blue,
         title: Text(
           'Student Data',
+          style: TextStyle(color: Colors.white),
         ),
       ),
       body: Column(
@@ -27,7 +29,101 @@ class HomePage extends StatelessWidget {
                     child: ListTile(
                       leading: Text('${index + 1}'),
                       title: Text('${providertrue.studentdata[index].name}'),
-                      subtitle: Text('${providertrue.studentdata[index].id}'),
+                      subtitle: Text(
+                          '${providertrue.studentdata[index].id}\n${providertrue.studentdata[index].dateTime}'),
+                      trailing: Container(
+                        width: 100,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  txtid.text =
+                                      providertrue.studentdata[index].id;
+                                  txtname.text =
+                                      providertrue.studentdata[index].name;
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                            title: Padding(
+                                              padding: const EdgeInsets.all(2),
+                                              child: Form(
+                                                key: formkey,
+                                                child: Column(
+                                                  children: [
+                                                    TextFormField(
+                                                      controller: txtname,
+                                                      decoration: InputDecoration(
+                                                          label: Text('Name'),
+                                                          border: OutlineInputBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          10),
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                      color: Colors
+                                                                          .blue,
+                                                                      width: 2))),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 20,
+                                                    ),
+                                                    TextField(
+                                                      controller: txtid,
+                                                      maxLines: 2,
+                                                      decoration: InputDecoration(
+                                                          label:
+                                                              Text('Description'),
+                                                          border: OutlineInputBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          10),
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                      color: Colors
+                                                                          .blue,
+                                                                      width: 2))),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            actions: [
+                                              TextButton(
+                                                  onPressed: () {
+                                                   if(formkey.currentState!.validate())
+                                                     {
+                                                       Navigator.of(context).pop();
+                                                       providerfalse.updatestudent(
+                                                           txtid!.text,
+                                                           txtname!.text,
+                                                           DateTime.now(),
+                                                           index);
+                                                       ScaffoldMessenger.of(
+                                                           context)
+                                                           .showSnackBar(SnackBar(
+                                                         content:
+                                                         Text('Update Save'),
+                                                         duration:
+                                                         Duration(seconds: 2),
+                                                       ));
+                                                     }
+                                                  },
+                                                  child: Text('Save'))
+                                            ],
+                                          ));
+                                },
+                                icon: Icon(Icons.edit)),
+                            IconButton(
+                                onPressed: () {
+                                  providerfalse.removestudent(index);
+                                },
+                                icon: Icon(Icons.delete))
+                          ],
+                        ),
+                      ),
                     ),
                   )),
         ],
@@ -39,37 +135,64 @@ class HomePage extends StatelessWidget {
             builder: (context) => AlertDialog(
               title: Padding(
                 padding: const EdgeInsets.all(2),
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: providertrue.txtname,
-                      decoration: InputDecoration(border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.blue,width: 2)
-                      )),
-                    ),
-                    SizedBox(height: 20,),
-                    TextField(
-                      controller: providertrue.txtid,
-                      decoration: InputDecoration(border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.blue,width: 2)
-                      )),
-                    ),
-
-                  ],
+                child: Form(
+                  key: formkey,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        validator: (value) {
+                          return value!.isEmpty?"This deatils is mandatory":null;
+                        },
+                        controller: txtname,
+                        decoration: InputDecoration(
+                            label: Text('Name'),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 2))),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        validator: (value) {
+                          return value!.isEmpty?"This deatils is mandatory":null;
+                        },
+                        controller: txtid,
+                        maxLines: 2,
+                        decoration: InputDecoration(
+                            label: Text('Description'),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide:
+                                    BorderSide(color: Colors.blue, width: 2))),
+                      ),
+                    ],
+                  ),
                 ),
-
-              ),actions: [
-                TextButton(onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
-                  providerfalse.addstudent(providertrue.txtid!.text,providertrue.txtname!.text);
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Data Save'),duration: Duration(seconds: 2),));
-                }, child: Text('Save'))
-            ],
+              ),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                     if(formkey.currentState!.validate())
+                       {
+                         Navigator.of(context).pop();
+                         providerfalse.addstudent(
+                             txtid!.text, txtname!.text, DateTime.now());
+                         txtname.clear();
+                         txtid.clear();
+                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                           content: Text('Task Save'),
+                           duration: Duration(seconds: 2),
+                         ));
+                       }
+                    },
+                    child: Text('Save'))
+              ],
             ),
           );
-        },child: Icon(Icons.add),
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
