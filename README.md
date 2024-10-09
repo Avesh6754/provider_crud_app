@@ -83,3 +83,12 @@ void deleteTask(int index) {
   notifyListeners();
 }
 ```
+
+<p>
+ 
+
+  <img src="https://github.com/user-attachments/assets/d7ca8a25-1dd8-4726-bf49-b496f467e5e9" width="22%" Height="35%">
+    <img src="https://github.com/user-attachments/assets/5ed338be-243c-4d78-8a5b-7e4228e435a3" width="22%" Height="35%">
+      <img src="https://github.com/user-attachments/assets/3a29cca3-7a3d-4b7f-9921-2078d4fa01ad" width="22%" Height="35%">
+</p>
+
