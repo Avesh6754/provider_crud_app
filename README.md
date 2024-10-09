@@ -87,12 +87,17 @@ void deleteTask(int index) {
 <p>
  
 
-  <img src="https://github.com/user-attachments/assets/d7ca8a25-1dd8-4726-bf49-b496f467e5e9" width="22%" Height="35%">
-    <img src="https://github.com/user-attachments/assets/5ed338be-243c-4d78-8a5b-7e4228e435a3" width="22%" Height="35%">
-      <img src="https://github.com/user-attachments/assets/3a29cca3-7a3d-4b7f-9921-2078d4fa01ad" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/9b3d1567-2236-43f0-ac25-c331effde875" width="22%" Height="35%">
+    <img src="https://github.com/user-attachments/assets/3aa7e0e4-bbc6-4647-9c1c-b450218a3ac9" width="22%" Height="35%">
+      <img src="https://github.com/user-attachments/assets/6d06267b-88af-4878-834e-78bf2b2a02e9" width="22%" Height="35%">
+      <img src="https://github.com/user-attachments/assets/1f19edbf-2eaf-4363-92c3-6d7136a0fee4" width="22%" Height="35%">
+    <img src="https://github.com/user-attachments/assets/e5e97814-7844-4131-8b80-8c75b3f240c9" width="22%" Height="35%">
+      <img src="https://github.com/user-attachments/assets/997e0801-cb78-4e4c-bc15-85ca71c1e5b7" width="22%" Height="35%">
+      <img src="https://github.com/user-attachments/assets/6d409537-f084-4c3f-a988-6671579917a9" width="22%" Height="35%">
+    <img src="https://github.com/user-attachments/assets/6f0a6962-4c94-4d62-bcec-7827850c7081" width="22%" Height="35%">
+      
 </p>
 
 
 
-https://github.com/user-attachments/assets/f5a9430b-9a47-4dcc-b999-035dcd48ace5
 
