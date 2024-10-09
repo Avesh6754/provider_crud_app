@@ -148,6 +148,8 @@ themeProviderfales.themeChange();
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          txtname=TextEditingController();
+          txtid=TextEditingController();
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
@@ -206,8 +208,7 @@ themeProviderfales.themeChange();
                           txtname!.text,
                           DateTime.now(),
                         );
-                        txtname.clear();
-                        txtid.clear();
+
                         ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
                           content: Text('Task Save'),
