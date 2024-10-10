@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_crud_app/provider/counter_provider.dart';
 import 'package:provider_crud_app/provider/home_provider.dart';
+import 'package:provider_crud_app/view/counter_page.dart';
 import 'package:provider_crud_app/view/home_page.dart';
 
 void main()
@@ -15,12 +17,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => CounterProvider(),),
         ChangeNotifierProvider(create: (context) => BackgroundProvider(),),
       ],
 
-      builder: (context, child) =>const MaterialApp(
+      builder: (context, child) =>MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        routes: {
+          '/':(context)=>CounterPage(),
+          '/home':(context)=>HomePage(),
+        },
       ),
     );
   }
