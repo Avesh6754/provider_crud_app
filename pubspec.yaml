@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
   intl: ^0.19.0
+  shared_preferences: ^2.3.2
+  image_gallery_saver: ^2.0.3
+  flutter_speed_dial: ^7.0.0
+  flutter_staggered_grid_view: ^0.7.0
 
 dev_dependencies:
   flutter_test:
@@ -65,16 +69,7 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/image/durga/
-    - assets/image/ganesh/
-    - assets/image/hanuman/
-    - assets/image/kali/
-    - assets/image/krishna/
-    - assets/image/lakshmi/
-    - assets/image/ram/
-    - assets/image/sarawati/
-    - assets/image/shiv/
-    - assets/image/vishnu/
+    - assets/image/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
