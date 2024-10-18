@@ -60,13 +60,7 @@ class FloatingAction extends StatelessWidget {
               onTap: () {},
               child: Icon(Icons.save),
               label: 'Save',
-            ),
-            SpeedDialChild(
-              onTap: () {
-                Navigator.of(context).pushNamed('/home');
-              },
-              child: Icon(Icons.image),
-              label: 'Background Image',
+
             )
           ],
         ),

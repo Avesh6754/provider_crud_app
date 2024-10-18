@@ -21,15 +21,15 @@ class Counter_Container extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: CupertinoButton(
-                onPressed: () {
-                  counterProviderfalse.incrementcounter();
-                  counterProviderfalse.counterround();
-                  counterProviderfalse.totalcounting();
-                },
-                child: CircleAvatar(
-                  radius: 100,
-                  backgroundColor: Colors.black.withOpacity(0.55),
+              child: CircleAvatar(
+                radius: 100,
+                backgroundColor: Colors.black.withOpacity(0.55),
+                child: CupertinoButton(
+                  onPressed: () {
+                    counterProviderfalse.incrementcounter();
+                    counterProviderfalse.counterround();
+                    counterProviderfalse.totalcounting();
+                  },
                   child: CircleAvatar(
                     radius: 80,
                     backgroundColor: Colors.black.withOpacity(0.58),
