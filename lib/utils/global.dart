@@ -17,3 +17,4 @@ List backgroundlist=[
    'assets/image/14.jpg',
    'assets/image/15.jpg',
 ];
+GlobalKey imagekey=GlobalKey();
