@@ -4,8 +4,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:provider_crud_app/utils/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../utils/global.dart';
 
 class CounterProvider extends ChangeNotifier{
   int counter=0;

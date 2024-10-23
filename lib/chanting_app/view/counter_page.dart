@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_crud_app/provider/counter_provider.dart';
-import 'package:provider_crud_app/utils/global.dart';
 
+
+import '../provider/counter_provider.dart';
+import '../utils/global.dart';
 import 'component/counter_container.dart';
 import 'component/counter_details.dart';
 import 'component/speed_dial.dart';
