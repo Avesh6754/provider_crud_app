@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_crud_app/todo_app/provider/TodoProvider.dart';
+
 class Profiledata extends StatelessWidget {
   const Profiledata({
     super.key,
@@ -10,8 +13,8 @@ class Profiledata extends StatelessWidget {
       children: [
         const CircleAvatar(
           radius: 28,
-          backgroundImage: AssetImage(
-              'assets/image/appimage/2-removebg-preview.png'),
+          backgroundImage:
+              AssetImage('assets/image/appimage/2-removebg-preview.png'),
         ),
         const Text(
           'Hello Josh',
@@ -24,6 +27,15 @@ class Profiledata extends StatelessWidget {
           child: const Icon(
             Icons.notifications,
             color: Colors.black,
+          ),
+        ),
+        SizedBox(width: 20,),
+        Consumer<TodoProvider>(
+          builder: (context, themeprovider, child) => Switch(
+            value: themeprovider.isDark,
+            onChanged: (value) {
+              themeprovider.themechange(value);
+            },
           ),
         )
       ],
