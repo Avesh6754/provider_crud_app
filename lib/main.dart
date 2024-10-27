@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_crud_app/food%20express/provider/list_update_provider.dart';
+import 'package:provider_crud_app/food%20express/screens/home_page.dart';
 import 'package:provider_crud_app/gallery_authentication/provider/galleryhome_provider.dart';
 import 'package:provider_crud_app/todo_app/provider/TodoProvider.dart';
 import 'package:provider_crud_app/todo_app/view/todo_home%20_page.dart';
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => CounterProvider(),),
         ChangeNotifierProvider(create: (context) => GalleryHome_Provider(),),
+        ChangeNotifierProvider(create: (context) => ListUpdateProvider(),),
         ChangeNotifierProvider(create: (context) => TodoProvider(currenttheme),),
       ],
 
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData.dark(),
         themeMode:Provider.of<TodoProvider>(context).isDark?ThemeMode.dark:ThemeMode.light,
         routes: {
-          '/':(context)=>Todo_App(),
+          '/':(context)=>HomePage(),
         },
       ),
     );
