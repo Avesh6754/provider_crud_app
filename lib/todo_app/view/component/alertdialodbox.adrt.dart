@@ -69,10 +69,12 @@ class AlertDialodbox extends StatelessWidget {
         ElevatedButton(
           onPressed: () {
             if (formKey.currentState!.validate()) {
-                Navigator.of(context).pop();
-                Provider.of<TodoProvider>(context,listen:false).setTodo(titleController.text, descriptionController.text, '${datetime.hour} : ${datetime.minute}', 'false');
-              }
-            },
+              Navigator.of(context).pop();
+              Provider.of<TodoProvider>(context, listen: false).setTodo(
+                  titleController.text, descriptionController.text,
+                  '${datetime.hour} : ${datetime.minute}', 'false');
+            }
+          },
           child: const Text('Save'),
         ),
       ],
