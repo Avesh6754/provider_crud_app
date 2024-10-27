@@ -90,6 +90,8 @@ class HomePage extends StatelessWidget {
           Container(
             child: Row(
 
+
+
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                   ProviderTrue.onboardindlist.length, (index) => Indicatorcolor(index: index,)),
