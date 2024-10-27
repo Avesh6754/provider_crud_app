@@ -53,3 +53,4 @@ List albums = [
     'image': 'assets/image/gallery/Animal.png'
   },
 ];
+enum Menu {hidden,share,delete}
