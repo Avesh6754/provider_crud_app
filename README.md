@@ -98,7 +98,12 @@ void deleteTask(int index) {
       
 </p>
 
-### Counter App Description
+
+
+https://github.com/user-attachments/assets/aa05ab7b-d012-4ed2-a48e-54e95f502102
+
+
+# Counter App Description
 This Flutter-based counter app demonstrates how to use the **Shared Preferences** package to store data persistently. The app allows users to increment a counter, with its value saved locally so that it remains consistent even when the app is restarted. Additionally, users can change the background color, which is also stored persistently.
 
 ### Key Features
@@ -207,10 +212,10 @@ class _CounterPageState extends State<CounterPage> {
 }
 ```
 
-    <img src="https://github.com/user-attachments/assets/6f0a6962-4c94-4d62-bcec-7827850c7081" width="22%" Height="35%">
+
+ <img src=" https://github.com/user-attachments/assets/679f5c7c-2899-4439-b5c2-2d912abbc347  " width="22%" Height="35%">
 
 
-https://github.com/user-attachments/assets/aa05ab7b-d012-4ed2-a48e-54e95f502102
 
 
 
