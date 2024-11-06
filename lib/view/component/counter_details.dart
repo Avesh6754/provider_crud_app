@@ -16,7 +16,7 @@ class CounterDetails extends StatelessWidget {
       children: [
         Container(
           height: 50,
-          margin: EdgeInsets.all(15),
+          margin: EdgeInsets.only(left: 15,right: 15,top: 40),
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.78),
             borderRadius: BorderRadius.circular(10),
@@ -32,7 +32,7 @@ class CounterDetails extends StatelessWidget {
         ),
         Container(
           height: 50,
-          margin: EdgeInsets.all(15),
+          margin: EdgeInsets.only(left: 15,right: 15,top: 40),
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.78),
             borderRadius: BorderRadius.circular(10),

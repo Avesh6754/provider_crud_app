@@ -3,7 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+// import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:provider_crud_app/utils/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -106,20 +106,6 @@ class CounterProvider extends ChangeNotifier{
    round= sharedPreferences.getInt('round')??0;
    index= sharedPreferences.getInt('index')??0;
    notifyListeners();
-  }
-  Future<void> imagesave()
-  async {
-    RenderRepaintBoundary boundary = imagekey.currentContext!
-        .findRenderObject() as RenderRepaintBoundary;
-    final image = await boundary.toImage();
-    final byteData =
-    await image.toByteData(format: ImageByteFormat.png);
-    log(byteData.hashCode.toString());
-    if (byteData != null) {
-      final uint8List = byteData.buffer.asUint8List();
-      log(uint8List.toString());
-      await ImageGallerySaver.saveImage(uint8List);
-    }
   }
 
   CounterProvider()

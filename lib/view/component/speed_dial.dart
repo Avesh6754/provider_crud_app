@@ -1,7 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
+// import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,15 +64,6 @@ class FloatingAction extends StatelessWidget {
               child: const Icon(Icons.restart_alt),
               label: 'Restart',
             ),
-            SpeedDialChild(
-              onTap: () {
-                counterProviderfalse.imagesave();
-                ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Image Save Successfully')));
-              },
-              child: const Icon(Icons.save),
-              label: 'Save',
-            )
           ],
         ),
       ],
