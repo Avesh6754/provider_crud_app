@@ -8,33 +8,30 @@ class ListUpdateProvider extends ChangeNotifier {
   int currentindex = 0;
   bool isHome = false;
 
-  List<Onboardingclass> onboardindlist=[];
 
   void listUpdate(int value) {
   currentindex=value;
     notifyListeners();
   }
 
-  void lastPage() {
+
+  Future<void> setData(bool isHome) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setBool('isHome',isHome);
+
+  }
+  void lastPage()
+  {
     isHome = true;
+    setData(isHome);
     notifyListeners();
   }
 
-  Future<void> setData() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    await preferences.setBool('isHome', isHome);
-  }
 
-  Future<void> getData()
-  async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    isHome = preferences.getBool('isHome') ?? false;
-  }
+  ListUpdateProvider(bool isHometemp) {
+isHome=isHometemp;
 
-  ListUpdateProvider() {
 
-    onboardindlist=screensList.map((e) => Onboardingclass.fomMap(e)).toList();
 
-    getData();
   }
 }
