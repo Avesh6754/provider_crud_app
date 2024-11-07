@@ -11,8 +11,9 @@ class PopUpMenuIteambutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<Menu>(
-      onSelected: (value) async {
-        if (value == Menu.hidden) {
+      icon: const Icon(Icons.more_vert),
+      onSelected: (Menu item) async {
+        if (item == Menu.hidden) {
 
           await Provider.of<GalleryHome_Provider>(context, listen: false).authenticationuser(context);
           // Navigator.push(

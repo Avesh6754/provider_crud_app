@@ -19,7 +19,7 @@ List albums = [
   {
     'name': 'Screenshot',
     'length': 848,
-    'image': 'assets/image/gallery/9.jpg'
+    'image': 'assets/image/gallery/1.jpg'
   },
   {
     'name': 'Instagram',
@@ -34,7 +34,7 @@ List albums = [
   {
     'name': 'Flowers',
     'length': 451,
-    'image': 'assets/image/gallery/Flowers.jpg'
+    'image': 'assets/image/gallery/3.jpg'
   },
   {
     'name': 'Animals',
@@ -44,7 +44,7 @@ List albums = [
   {
     'name': 'Collages',
     'length': 1015,
-    'image': 'assets/image/gallery/1.jpg'
+    'image': 'assets/image/gallery/2.jpg'
   },
   {'name': 'Flower', 'length': 547, 'image': 'assets/image/gallery/Flower.png'},
   {

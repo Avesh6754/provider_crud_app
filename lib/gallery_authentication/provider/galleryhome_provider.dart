@@ -29,6 +29,5 @@ class GalleryHome_Provider extends ChangeNotifier{
       {
         log('Warning: Authentication issue!');
       }
-
-  }
+}
 }
