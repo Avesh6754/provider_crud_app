@@ -1,7 +1,7 @@
 
 # provider_crud_app
 
-# To-Do App
+<h1 align="center">To-Do App</h1>
 
 This is a To-Do application built using the Flutter framework and Dart language. It utilizes the Provider state management to perform essential CRUD (Create, Read, Update, Delete) operations. The app allows users to seamlessly manage their tasks, mark them as completed, edit, or delete them as needed. The user interface is intuitive and responsive, ensuring a smooth experience across different devices.
 
