@@ -1,5 +1,4 @@
 
-# provider_crud_app
 
 <h1 align="center">🔶🔸To-Do App🔸🔶</h1>
 
@@ -226,7 +225,6 @@ https://github.com/user-attachments/assets/4c5b8e61-ac82-4943-b96f-966f0efaa826
 
 <h1 align="center">🔶🔸Intro Page With Share Preference🔸🔶</h1>
 
-### Creating an onboarding screen with a persistent state using Shared Preferences in Flutter is a great approach to ensure users only see the onboarding screen once. Below is an overview and sample code to help you implement it.
 
 ### Description:
 
