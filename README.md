@@ -105,10 +105,13 @@ https://github.com/user-attachments/assets/aa05ab7b-d012-4ed2-a48e-54e95f502102
 
 
 <h1 align="center">🔶🔸Counter App🔸🔶</h1> 
+
 # Description
+
 This Flutter-based counter app demonstrates how to use the **Shared Preferences** package to store data persistently. The app allows users to increment a counter, with its value saved locally so that it remains consistent even when the app is restarted. Additionally, users can change the background color, which is also stored persistently.
 
 ### Key Features
+
 1. **Persistent Counter**: The counter's value is saved using Shared Preferences, ensuring data continuity across sessions.
 2. **Background Color Customization**: Users can choose a background color, and the selected color is stored persistently.
 
@@ -223,12 +226,14 @@ https://github.com/user-attachments/assets/4c5b8e61-ac82-4943-b96f-966f0efaa826
 
 <h1 align="center">🔶🔸Intro Page With Share Preference🔸🔶</h1>
 
-# Creating an onboarding screen with a persistent state using Shared Preferences in Flutter is a great approach to ensure users only see the onboarding screen once. Below is an overview and sample code to help you implement it.
+### Creating an onboarding screen with a persistent state using Shared Preferences in Flutter is a great approach to ensure users only see the onboarding screen once. Below is an overview and sample code to help you implement it.
 
-## Description:
+### Description:
+
 The onboarding screen is typically displayed when the app is opened for the first time or when there’s no saved user preference for skipping it. Using Shared Preferences, we save a boolean value to track whether the user has completed onboarding. When the user completes onboarding, we save this preference and navigate them directly to the home screen on subsequent launches.
 
-## Implementation Steps:
+### Implementation Steps:
+
 1. **Onboarding Screen**: Create a series of introductory screens with navigation options.
 2. **Shared Preferences**: Save the user’s preference for having completed onboarding.
 3. **Home Screen**: Display this as the main screen if the user has already completed onboarding.
