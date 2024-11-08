@@ -220,10 +220,104 @@ class _CounterPageState extends State<CounterPage> {
 
 https://github.com/user-attachments/assets/4c5b8e61-ac82-4943-b96f-966f0efaa826
 
+# Intro Page With Share Preference
+
+# Creating an onboarding screen with a persistent state using Shared Preferences in Flutter is a great approach to ensure users only see the onboarding screen once. Below is an overview and sample code to help you implement it.
+
+## Description:
+The onboarding screen is typically displayed when the app is opened for the first time or when there’s no saved user preference for skipping it. Using Shared Preferences, we save a boolean value to track whether the user has completed onboarding. When the user completes onboarding, we save this preference and navigate them directly to the home screen on subsequent launches.
+
+## Implementation Steps:
+1. **Onboarding Screen**: Create a series of introductory screens with navigation options.
+2. **Shared Preferences**: Save the user’s preference for having completed onboarding.
+3. **Home Screen**: Display this as the main screen if the user has already completed onboarding.
+
+### Code Reference
+
+#### 1. Set up `SharedPreferences` in `pubspec.yaml`:
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.0.15
+```
+
+#### 2. Main.dart File
+```dart
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'onboarding_screen.dart';
+import 'home_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool? isOnboarded = prefs.getBool('onboarded') ?? false;
+  runApp(MyApp(isOnboarded: isOnboarded));
+}
+
+class MyApp extends StatelessWidget {
+  final bool isOnboarded;
+  
+  MyApp({required this.isOnboarded});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: isOnboarded ? HomeScreen() : OnboardingScreen(),
+    );
+  }
+}
+```
+
+#### 3. Onboarding Screen (onboarding_screen.dart)
+```dart
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'home_screen.dart';
+
+class OnboardingScreen extends StatelessWidget {
+  Future<void> _completeOnboarding(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('onboarded', true);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Welcome to the App!'),
+            ElevatedButton(
+              onPressed: () => _completeOnboarding(context),
+              child: Text('Get Started'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
 
 
 
 
+<p>
+ 
 
-
+  <img src="https://github.com/user-attachments/assets/118ffc8a-93c1-4781-b7de-adc9db6639b2" width="22%" Height="35%">
+  
+  <img src="https://github.com/user-attachments/assets/b0487aa7-ef01-462b-ad3d-58194314103c" width="22%" Height="35%">
+  
+  <img src="https://github.com/user-attachments/assets/1083c298-7cbf-4f16-ad00-b50d1edb9129" width="22%" Height="35%">
+  
+  <img src="https://github.com/user-attachments/assets/d6e1b1c6-4a5e-4926-90d0-b9ed9d9b2e7e" width="22%" Height="35%">
+  </p>
 
