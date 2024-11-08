@@ -1,7 +1,7 @@
 
 # provider_crud_app
 
-<h1 align="center">To-Do App</h1>
+<h1 align="center">🔶🔸To-Do App🔸🔶</h1>
 
 This is a To-Do application built using the Flutter framework and Dart language. It utilizes the Provider state management to perform essential CRUD (Create, Read, Update, Delete) operations. The app allows users to seamlessly manage their tasks, mark them as completed, edit, or delete them as needed. The user interface is intuitive and responsive, ensuring a smooth experience across different devices.
 
@@ -104,7 +104,8 @@ void deleteTask(int index) {
 https://github.com/user-attachments/assets/aa05ab7b-d012-4ed2-a48e-54e95f502102
 
 
-# Counter App Description
+<h1 align="center">🔶🔸Counter App🔸🔶</h1> 
+# Description
 This Flutter-based counter app demonstrates how to use the **Shared Preferences** package to store data persistently. The app allows users to increment a counter, with its value saved locally so that it remains consistent even when the app is restarted. Additionally, users can change the background color, which is also stored persistently.
 
 ### Key Features
@@ -220,7 +221,7 @@ class _CounterPageState extends State<CounterPage> {
 
 https://github.com/user-attachments/assets/4c5b8e61-ac82-4943-b96f-966f0efaa826
 
-# Intro Page With Share Preference
+<h1 align="center">🔶🔸Intro Page With Share Preference🔸🔶</h1>
 
 # Creating an onboarding screen with a persistent state using Shared Preferences in Flutter is a great approach to ensure users only see the onboarding screen once. Below is an overview and sample code to help you implement it.
 
@@ -320,4 +321,8 @@ class OnboardingScreen extends StatelessWidget {
   
   <img src="https://github.com/user-attachments/assets/d6e1b1c6-4a5e-4926-90d0-b9ed9d9b2e7e" width="22%" Height="35%">
   </p>
+
+
+
+https://github.com/user-attachments/assets/6b97b9af-84c6-4907-8507-906ecb4a28ac
 
