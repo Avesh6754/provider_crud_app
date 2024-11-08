@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_crud_app/gallery_authentication/provider/galleryhome_provider.dart';
+import 'package:provider_crud_app/stepper_widget/provider/stepper_Provider.dart';
+import 'package:provider_crud_app/stepper_widget/views/Stepper_Vertical.dart';
+import 'package:provider_crud_app/stepper_widget/views/home/stepper_Screen.dart';
 import 'package:provider_crud_app/todo_app/provider/TodoProvider.dart';
 import 'package:provider_crud_app/todo_app/provider/themeProvider.dart';
 import 'package:provider_crud_app/todo_app/view/todo_home%20_page.dart';
@@ -29,6 +32,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => GalleryHome_Provider(),),
         ChangeNotifierProvider(create: (context) => TodoProvider(),),
         ChangeNotifierProvider(create: (context) => ThemeProvider(),),
+        ChangeNotifierProvider(create: (context) => Stepper_Provider(),)
       ],
 
       builder: (context, child) =>MaterialApp(
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData.dark(),
         themeMode:Provider.of<ThemeProvider>(context).isDark?ThemeMode.dark:ThemeMode.light,
         routes: {
-          '/':(context)=>Todo_App(),
+          '/':(context)=>StepperScreen(),
         },
       ),
     );
