@@ -329,3 +329,26 @@ class OnboardingScreen extends StatelessWidget {
 
 https://github.com/user-attachments/assets/6b97b9af-84c6-4907-8507-906ecb4a28ac
 
+<h1 align="center">🔶🔸Stepper Widget🔸🔶</h1>
+
+# Vertical Stepper Widget
+
+
+<p>
+  <img src="https://github.com/user-attachments/assets/d7bc1f1a-8e68-4b97-abf7-e331ca3a8e46" width="22%" Height="35%">
+ <img src="https://github.com/user-attachments/assets/9d10f78d-1d4f-44ce-a0e8-cba3f460184f" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/8b4c3dc6-d6ee-44b8-abfa-9e31868ea05d" width="22%" Height="35%">
+  
+  </p>
+# Horizontal Stepper Widget
+  <p>
+  <img src="https://github.com/user-attachments/assets/6b65703c-605b-4c65-9982-258c252b9e6c" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/4f65317e-d129-468c-a42e-edce11957f04" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/f06912a4-bd07-46db-8da3-8600be620896" width="22%" Height="35%">
+  </p>
+
+
+
+
+
+
