@@ -403,5 +403,127 @@ Let me know if you'd like further assistance with setting up the GitHub reposito
 
 https://github.com/user-attachments/assets/af63b503-4490-4385-9d89-02a8e620527b
 
+<h1 align="center">🔶🔸Profile Screen🔸🔶</h1>
+
+Here’s a description with code for a profile page in Flutter that demonstrates theme changing and uses Shared Preferences for persistence. This is ideal for a GitHub README.
+
+---
+
+### Profile Page Demo with Theme Change and Shared Preferences in Flutter
+
+This Flutter app demonstrates a profile page with a theme switcher. The theme selection persists across sessions using Shared Preferences, allowing users to save their theme choice.
+
+#### Main Features
+- **Profile Page**: Displays basic profile information.
+- **Theme Switching**: Toggle between light and dark themes.
+- **Persistent Theme**: User's theme preference is saved using Shared Preferences.
+
+---
+
+### Code Example
+
+#### 1. Setting Up `ThemeProvider` Class
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class ThemeProvider extends ChangeNotifier {
+  bool _isDarkMode = false;
+
+  bool get isDarkMode => _isDarkMode;
+
+  ThemeProvider() {
+    _loadThemeFromPrefs();
+  }
+
+  void toggleTheme() {
+    _isDarkMode = !_isDarkMode;
+    _saveThemeToPrefs();
+    notifyListeners();
+  }
+
+  Future<void> _loadThemeFromPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _isDarkMode = prefs.getBool('isDarkMode') ?? false;
+    notifyListeners();
+  }
+
+  Future<void> _saveThemeToPrefs() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isDarkMode', _isDarkMode);
+  }
+}
+```
+
+#### 2. Main Entry Point (`main.dart`)
+
+```dart
+
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          theme: themeProvider.isDarkMode ? ThemeData.dark() : ThemeData.light(),
+          home: ProfilePage(),
+        );
+      },
+    );
+  }
+}
+```
+
+#### 3. Profile Page with Theme Switch
+
+```dart
+
+      appBar: AppBar(
+        title: Text("Profile Page"),
+        actions: [
+          Switch(
+            value: themeProvider.isDarkMode,
+            onChanged: (value) {
+              themeProvider.toggleTheme();
+            },
+          ),
+        ],
+      ),
+
+```
+
+---
+
+### Explanation
+
+- **ThemeProvider Class**: Manages theme state and uses Shared Preferences to persist user preference.
+- **Main App (`main.dart`)**: Uses `Provider` to supply the theme across the app.
+- **Profile Page**: Displays a basic profile with a theme switcher in the app bar.
+
+### Run the App
+
+Ensure you have dependencies added in `pubspec.yaml`:
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.0
+  shared_preferences: ^2.0.0
+```
+
+This code allows users to change themes on the profile page and saves the preference using Shared Preferences. Perfect for showcasing theme persistence and user settings management.
+
+
+ <p>
+  <img src="https://github.com/user-attachments/assets/1ca8a5f5-8cc6-4bdc-92f1-09dfb745e85e" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/b919df99-2796-45f5-90fc-4c8230cd5093" width="22%" Height="35%">
+
+  </p>
+
+
+https://github.com/user-attachments/assets/6958a874-9120-4158-aed4-f473102bcadf
+
 
 
