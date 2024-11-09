@@ -27,8 +27,8 @@ class StepperHorizontal extends StatelessWidget {
       currentStep: providerTrue.currentindexHorizontal,
       steps: [
         Step(
-          title: const Text('Account'),
-          content: Column(
+          title: const Text('Profile  '),
+          content: const Column(
             children: [
                HorizontalTextInputBox(
                 hintText: 'First Name',
@@ -55,7 +55,7 @@ class StepperHorizontal extends StatelessWidget {
 
         //MOBILE NUMBER
         Step(
-          title: const Text('Mobile Number'),
+          title: const Text('Mobile'),
           content: const HorizontalTextInputBox(
             hintText: 'Mobile Number',
             textInputType: TextInputType.number,
