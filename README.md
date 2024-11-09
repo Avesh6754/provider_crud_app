@@ -328,10 +328,6 @@ https://github.com/user-attachments/assets/6b97b9af-84c6-4907-8507-906ecb4a28ac
 
 <h1 align="center">🔶🔸Stepper Widget🔸🔶</h1>
 
-Here's a description of your Stepper widget demo app in Flutter, featuring both vertical and horizontal orientations, along with code references for GitHub:
-
----
-
 ### Stepper Widget Demo App in Flutter
 
 This app demonstrates the use of the Stepper widget in Flutter, showcasing both vertical and horizontal orientations. The Stepper widget is useful for visualizing a sequence of steps, making it ideal for applications that involve forms, processes, or multi-step tasks.
