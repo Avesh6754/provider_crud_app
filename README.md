@@ -403,12 +403,8 @@ Let me know if you'd like further assistance with setting up the GitHub reposito
 
 https://github.com/user-attachments/assets/af63b503-4490-4385-9d89-02a8e620527b
 
-<h1 align="center">🔶🔸Profile Screen🔸🔶</h1>
-
-Here’s a description with code for a profile page in Flutter that demonstrates theme changing and uses Shared Preferences for persistence. This is ideal for a GitHub README.
-
----
-
+<h1 align="center">🔶🔸Profile Screen🔸🔶</h1
+                                      
 ### Profile Page Demo with Theme Change and Shared Preferences in Flutter
 
 This Flutter app demonstrates a profile page with a theme switcher. The theme selection persists across sessions using Shared Preferences, allowing users to save their theme choice.
