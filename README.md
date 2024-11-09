@@ -310,9 +310,6 @@ class OnboardingScreen extends StatelessWidget {
 }
 ```
 
-
-
-
 <p>
  
 
@@ -331,6 +328,65 @@ https://github.com/user-attachments/assets/6b97b9af-84c6-4907-8507-906ecb4a28ac
 
 <h1 align="center">🔶🔸Stepper Widget🔸🔶</h1>
 
+Here's a description of your Stepper widget demo app in Flutter, featuring both vertical and horizontal orientations, along with code references for GitHub:
+
+---
+
+### Stepper Widget Demo App in Flutter
+
+This app demonstrates the use of the Stepper widget in Flutter, showcasing both vertical and horizontal orientations. The Stepper widget is useful for visualizing a sequence of steps, making it ideal for applications that involve forms, processes, or multi-step tasks.
+
+#### Features
+1. **Vertical and Horizontal Stepper**: Toggle between vertical and horizontal orientations of the Stepper widget.
+2. **Step Control**: Navigate through steps with `next`, `back`, and `cancel` controls.
+3. **State Management**: Manage the active step index for an intuitive user experience.
+
+#### Code Reference
+
+Here's a basic structure of how the Stepper widget can be implemented:
+
+```dart
+
+      body: Stepper(
+        type: _isVertical ? StepperType.vertical : StepperType.horizontal,
+        currentStep: _currentStep,
+        onStepContinue: _currentStep < 2
+            ? () => setState(() => _currentStep += 1)
+            : null,
+        onStepCancel: _currentStep > 0
+            ? () => setState(() => _currentStep -= 1)
+            : null,
+        steps: [
+          Step(
+            title: Text('Step 1'),
+            content: Text('This is the first step.'),
+            isActive: _currentStep >= 0,
+          ),
+          Step(
+            title: Text('Step 2'),
+            content: Text('This is the second step.'),
+            isActive: _currentStep >= 1,
+          ),
+          Step(
+            title: Text('Step 3'),
+            content: Text('This is the final step.'),
+            isActive: _currentStep >= 2,
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+1. **Orientation Toggle**: The app bar includes an icon button to switch between vertical and horizontal modes.
+2. **Step Navigation**: The `onStepContinue` and `onStepCancel` functions allow users to navigate through the steps.
+
+#### GitHub Repository
+To make the code easily accessible, you can upload it to a GitHub repository. This will allow others to view, clone, and use your Stepper widget demo app.
+
+Let me know if you'd like further assistance with setting up the GitHub repository or if you want additional features added to the app description!
+
 # Vertical Stepper Widget
 
 
@@ -340,15 +396,16 @@ https://github.com/user-attachments/assets/6b97b9af-84c6-4907-8507-906ecb4a28ac
   <img src="https://github.com/user-attachments/assets/8b4c3dc6-d6ee-44b8-abfa-9e31868ea05d" width="22%" Height="35%">
   
   </p>
+  
 # Horizontal Stepper Widget
+
   <p>
   <img src="https://github.com/user-attachments/assets/6b65703c-605b-4c65-9982-258c252b9e6c" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/4f65317e-d129-468c-a42e-edce11957f04" width="22%" Height="35%">
   <img src="https://github.com/user-attachments/assets/f06912a4-bd07-46db-8da3-8600be620896" width="22%" Height="35%">
   </p>
 
-
-
+https://github.com/user-attachments/assets/af63b503-4490-4385-9d89-02a8e620527b
 
 
 
