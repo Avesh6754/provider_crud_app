@@ -41,6 +41,8 @@ dependencies:
   image_gallery_saver: ^2.0.3
   flutter_speed_dial: ^7.0.0
   local_auth: ^2.3.0
+  chewie: ^1.8.5
+  video_player: ^2.9.2
 
 dev_dependencies:
   flutter_test:
@@ -70,8 +72,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/image/
-    - assets/image/hidden1/
-    - assets/image/hidden2/
+#    - assets/image/hidden1/
+#    - assets/image/hidden2/
     - assets/image/gallery/
     - assets/image/appimage/
 
