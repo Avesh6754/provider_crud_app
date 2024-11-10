@@ -12,11 +12,11 @@ class Task_Add extends StatelessWidget {
   });
 
   final GlobalKey<FormState> formkey;
-  final TodoProvider providerfalse;
+  final TodoProviderShare providerfalse;
 
   @override
   Widget build(BuildContext context) {
-    TodoProvider todoProvider=Provider.of<TodoProvider>(context);
+    TodoProviderShare todoProvider=Provider.of<TodoProviderShare>(context);
     return AlertDialog(
       title: Padding(
         padding: const EdgeInsets.all(2),

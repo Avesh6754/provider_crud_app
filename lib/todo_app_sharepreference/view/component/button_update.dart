@@ -14,10 +14,10 @@ class UpdateButton extends StatelessWidget {
     required this.index,
   });
 
-  final TodoProvider providertrue;
+  final TodoProviderShare providertrue;
   final int index;
   final GlobalKey<FormState> formkey;
-  final TodoProvider providerfalse;
+  final TodoProviderShare providerfalse;
 
   @override
   Widget build(BuildContext context) {

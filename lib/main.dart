@@ -11,12 +11,12 @@ import 'chanting_app/provider/counter_provider.dart';
 import 'gallery_authentication/view/home/gallery_homePage.dart';
 
 bool currenttheme = false;
-late TodoProvider todoProvider;
+late TodoProviderShare todoProvider;
 late ThemeProvider themeProvider;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  todoProvider=TodoProvider();
+  todoProvider=TodoProviderShare();
   await todoProvider.refreshToDoList();
   themeProvider = ThemeProvider();
   await themeProvider.getTheme();

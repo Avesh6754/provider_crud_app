@@ -24,24 +24,25 @@ class LocalTodo {
     await sharedPreferences.setStringList('des', description);
     await sharedPreferences.setStringList('date', datetime);
     await sharedPreferences.setStringList('check', isComplete);
+
   }
 
   Future<List<TodoModal>> get() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+
     List<TodoModal> newtodoList = [];
-
-    task = sharedPreferences.getStringList('task') ?? task;
-    description = sharedPreferences.getStringList('des') ?? description;
-    datetime = sharedPreferences.getStringList('date') ?? datetime;
-    isComplete = sharedPreferences.getStringList('check') ?? isComplete;
-
-    for (int i = 0; i < newtodoList.length; i++) {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    task = sharedPreferences.getStringList('task') ?? [];
+    description = sharedPreferences.getStringList('des') ?? [];
+    datetime = sharedPreferences.getStringList('date') ?? [];
+    isComplete = sharedPreferences.getStringList('check') ?? [];
+    for (int i = 0; i < task.length; i++) {
       newtodoList.add(TodoModal(
           description: description[i],
           isCompleted: bool.parse(isComplete[i]),
           dateTime: datetime[i],
           task: task[i]));
     }
+
     return newtodoList;
   }
 }

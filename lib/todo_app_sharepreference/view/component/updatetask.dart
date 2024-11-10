@@ -14,7 +14,7 @@ class UpdateTask extends StatelessWidget {
   });
 
   final GlobalKey<FormState> formkey;
-  final TodoProvider providerfalse;
+  final TodoProviderShare providerfalse;
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -33,11 +33,11 @@ class UpdateTask extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              TextForm(name: txtname,),
+              TextForm(name: txtname,label: 'Task',),
               const SizedBox(
                 height: 20,
               ),
-              TextForm(name: txtid,),
+              TextForm(name: txtid,label: 'Description',),
             ],
           ),
         ),

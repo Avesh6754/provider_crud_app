@@ -20,10 +20,10 @@ class Todo_App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = GlobalKey<FormState>();
-    TodoProvider providertrue =
-        Provider.of<TodoProvider>(context, listen: true);
-    TodoProvider providerfalse =
-        Provider.of<TodoProvider>(context, listen: false);
+    TodoProviderShare providertrue =
+        Provider.of<TodoProviderShare>(context, listen: true);
+    TodoProviderShare providerfalse =
+        Provider.of<TodoProviderShare>(context, listen: false);
 
     ThemeProvider themeProvider =
         Provider.of<ThemeProvider>(context, listen: true);
@@ -72,7 +72,7 @@ class Todo_App extends StatelessWidget {
                     ),
                   ),
                   title:
-                      Text('${index + 1} ${providertrue.todolist[index].task}'),
+                      Text('${providertrue.todolist[index].task}'),
                   subtitle: Text(
                       '${providertrue.todolist[index].description}\n${providertrue.todolist[index].dateTime}'),
                   trailing: UpdateButton(

@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../modal/modal.dart';
 
-class TodoProvider extends ChangeNotifier {
+class TodoProviderShare extends ChangeNotifier {
   List<TodoModal> todolist = [];
 
   LocalTodo localTodo=LocalTodo();
@@ -48,7 +48,7 @@ localTodo.setdata(todolist);
     notifyListeners();
   }
   Future<void> refreshToDoList() async {
-    todolist = await localTodo.get();
+    todolist=await localTodo.get();
     notifyListeners();
   }
 
