@@ -2,9 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:getwidget/components/toggle/gf_toggle.dart';
+import 'package:getwidget/types/gf_toggle_type.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:video_player/video_player.dart';
+import 'package:provider_crud_app/todo_app_sharepreference/utils/global.dart';
+
 
 import '../provider/TodoProvider.dart';
 import '../provider/themeProvider.dart';
@@ -31,55 +34,61 @@ class Todo_App extends StatelessWidget {
         Provider.of<ThemeProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+       elevation: 5,
+        shadowColor: Colors.black38,
         title: const Text(
           'TODO App',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(fontWeight: FontWeight.bold,letterSpacing: 1),
         ),
         actions: [
-          Switch(
+          GFToggle(
             value: themeProvider.isDark,
             onChanged: (value) {
               themeProviderfales.themeChange();
             },
+            disabledThumbColor: Colors.purple,
+            enabledTrackColor:Colors.red,
+            enabledThumbColor: Theme.of(context).colorScheme.primary,
+            type: GFToggleType.custom,
           )
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10,top: 10),
+              child: Text('Today Task',style: TextStyle(fontWeight: FontWeight.w500,fontSize: 25),),
+            ),
             const SizedBox(
               height: 5,
             ),
             ...List.generate(
               providertrue.todolist.length,
-              (index) => Card(
-                child: ListTile(
-                  leading:  CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {
-                      providerfalse.markAsComplete(index);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: CircleAvatar(
-                        radius: 24,
-                        child: Icon(
-                          providertrue.todolist[index].isCompleted ? Icons.done : Icons.radio_button_off,
-                          size: 30,
-                        ),
+              (index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Card(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.symmetric(vertical: BorderSide(color: color[index],width: 6))
+                          ,borderRadius: BorderRadius.circular(15)
+                    ),
+                    child: ListTile(
+                      leading: Checkbox(value:providertrue.todolist[index].isCompleted , onChanged: (value) {
+                        providerfalse.markAsComplete(index);
+                      },),
+                      title:
+                          Text('${providertrue.todolist[index].task}'),
+                      subtitle: Text(
+                          '${providertrue.todolist[index].description}\n${providertrue.todolist[index].dateTime}'),
+                      trailing: UpdateButton(
+                        providertrue: providertrue,
+                        formkey: formkey,
+                        providerfalse: providerfalse,
+                        index: index,
                       ),
                     ),
-                  ),
-                  title:
-                      Text('${providertrue.todolist[index].task}'),
-                  subtitle: Text(
-                      '${providertrue.todolist[index].description}\n${providertrue.todolist[index].dateTime}'),
-                  trailing: UpdateButton(
-                    providertrue: providertrue,
-                    formkey: formkey,
-                    providerfalse: providerfalse,
-                    index: index,
                   ),
                 ),
               ),

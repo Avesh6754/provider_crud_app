@@ -8,7 +8,7 @@ import '../modal/modal.dart';
 class TodoProviderShare extends ChangeNotifier {
   List<TodoModal> todolist = [];
 
-  LocalTodo localTodo=LocalTodo();
+  ToDoLocalProvider localTodo=ToDoLocalProvider();
 
   void addtodo({required String task,
       required String description,
@@ -21,19 +21,19 @@ class TodoProviderShare extends ChangeNotifier {
       task:task
 
     ));
-localTodo.setdata(todolist);
+localTodo.setLists(todolist);
 
     notifyListeners();
   }
   void markAsComplete(int index){
     todolist[index].isCompleted = !todolist[index].isCompleted;
-    localTodo.setdata(todolist);
+    localTodo.setLists(todolist);
     notifyListeners();
   }
 
   void removetodo(int index) {
     todolist.removeAt(index);
-    localTodo.setdata(todolist);
+    localTodo.setLists(todolist);
     notifyListeners();
   }
 
@@ -44,11 +44,11 @@ localTodo.setdata(todolist);
     todolist[index].task = task;
     todolist[index].description = description;
     todolist[index].dateTime = formatted;
-    localTodo.setdata(todolist);
+    localTodo.setLists(todolist);
     notifyListeners();
   }
   Future<void> refreshToDoList() async {
-    todolist=await localTodo.get();
+    todolist=await localTodo.getLists();
     notifyListeners();
   }
 

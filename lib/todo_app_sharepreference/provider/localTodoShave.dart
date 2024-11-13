@@ -1,48 +1,61 @@
+
+import 'package:flutter/material.dart';
 import 'package:provider_crud_app/todo_app_sharepreference/modal/modal.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LocalTodo {
-  List<String> task = [];
+class ToDoLocalProvider {
+  List<String> title = [];
   List<String> description = [];
-  List<String> datetime = [];
+  List<String> time = [];
   List<String> isComplete = [];
 
-  Future<void> setdata(List<TodoModal> todolist) async {
-    task.clear();
+
+  //saveLists
+  Future<void> setLists(List<TodoModal> todoList) async {
+    title.clear();
     description.clear();
-    datetime.clear();
+    time.clear();
     isComplete.clear();
 
-    for (int i = 0; i < todolist.length; i++) {
-      task.add(todolist[i].task);
-      description.add(todolist[i].description);
-      datetime.add(todolist[i].dateTime);
-      isComplete.add(todolist[i].isCompleted as String);
+
+    for (int i = 0; i < todoList.length; i++) {
+      title.add(todoList[i].task);
+      description.add(todoList[i].description);
+      time.add(todoList[i].dateTime);
+      isComplete.add(todoList[i].isCompleted.toString());
     }
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    await sharedPreferences.setStringList('task', task);
-    await sharedPreferences.setStringList('des', description);
-    await sharedPreferences.setStringList('date', datetime);
-    await sharedPreferences.setStringList('check', isComplete);
+
+
+
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.setStringList('title', title);
+    await preferences.setStringList('description', description);
+    await preferences.setStringList('time', time);
+    await preferences.setStringList('isComplete', isComplete);
+
 
   }
 
-  Future<List<TodoModal>> get() async {
+  Future<List<TodoModal>> getLists() async {
+    List<TodoModal> list = [];
 
-    List<TodoModal> newtodoList = [];
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    task = sharedPreferences.getStringList('task') ?? [];
-    description = sharedPreferences.getStringList('des') ?? [];
-    datetime = sharedPreferences.getStringList('date') ?? [];
-    isComplete = sharedPreferences.getStringList('check') ?? [];
-    for (int i = 0; i < task.length; i++) {
-      newtodoList.add(TodoModal(
-          description: description[i],
-          isCompleted: bool.parse(isComplete[i]),
-          dateTime: datetime[i],
-          task: task[i]));
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    title = preferences.getStringList('title') ?? [];
+    description = preferences.getStringList('description') ?? [];
+    time = preferences.getStringList('time') ?? [];
+    isComplete = preferences.getStringList('isComplete') ?? [];
+
+
+    for (int i = 0; i < title.length; i++) {
+      list.add(TodoModal(
+        task:  title[i],
+        description: description[i],
+        dateTime:time[i],
+        isCompleted: bool.parse(isComplete[i]),
+      ));
     }
 
-    return newtodoList;
+    return list;
   }
+
 }

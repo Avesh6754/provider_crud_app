@@ -19,6 +19,7 @@ class Add_Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      backgroundColor: Colors.blue,
       onPressed: () {
         txtname=TextEditingController();
         txtid=TextEditingController();
@@ -27,7 +28,7 @@ class Add_Button extends StatelessWidget {
           builder: (context) => Task_Add(formkey: formkey, providerfalse: providerfalse),
         );
       },
-      child: Icon(Icons.add),
+      child: Icon(Icons.add,color: Colors.white,),
     );
   }
 }
