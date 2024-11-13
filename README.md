@@ -105,117 +105,54 @@ https://github.com/user-attachments/assets/aa05ab7b-d012-4ed2-a48e-54e95f502102
 
 <h1 align="center">🔶🔸Counter App🔸🔶</h1> 
 
-# Description
+### Counter App
 
-This Flutter-based counter app demonstrates how to use the **Shared Preferences** package to store data persistently. The app allows users to increment a counter, with its value saved locally so that it remains consistent even when the app is restarted. Additionally, users can change the background color, which is also stored persistently.
+A simple counter app built using Flutter, with state persistence for the count and background color using the **Shared Preferences** and **Provider** packages. This app demonstrates state management, persistence, and theme customization in Flutter.
 
-### Key Features
+#### Features
+- **Persistent State**: Saves the count and background color across app restarts using Shared Preferences.
+- **Provider Integration**: Manages state changes with Provider for efficient updates and separation of concerns.
+- **Customizable Background**: Users can change the background color, which is saved and restored.
 
-1. **Persistent Counter**: The counter's value is saved using Shared Preferences, ensuring data continuity across sessions.
-2. **Background Color Customization**: Users can choose a background color, and the selected color is stored persistently.
+#### Key Code References
 
-### Code Overview
+1. **Provider Setup**
+   ```dart
+   ChangeNotifierProvider(
+     create: (_) => CounterProvider(),
+     child: MyApp(),
+   );
+   ```
 
-To set up Shared Preferences in the app, include the package in `pubspec.yaml`:
+2. **Shared Preferences for Persistent Storage**
+   - Fetching saved data on startup:
+     ```dart
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+     int savedCount = prefs.getInt('count') ?? 0;
+     Color savedColor = Color(prefs.getInt('backgroundColor') ?? Colors.white.value);
+     ```
+   - Saving data when count or color changes:
+     ```dart
+     prefs.setInt('count', newCount);
+     prefs.setInt('backgroundColor', selectedColor.value);
+     ```
 
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  shared_preferences: ^2.0.0  # Check for the latest version
-```
+3. **Provider Class for Counter Logic**
+   ```dart
+   class CounterProvider extends ChangeNotifier {
+     int _count = 0;
+     Color _backgroundColor = Colors.white;
 
-Then, import and use Shared Preferences in your code:
+     // Getter for count and background color
+     int get count => _count;
+     Color get backgroundColor => _backgroundColor;
 
-```dart
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-void main() => runApp(CounterApp());
-
-class CounterApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CounterPage(),
-    );
-  }
-}
-
-class CounterPage extends StatefulWidget {
-  @override
-  _CounterPageState createState() => _CounterPageState();
-}
-
-class _CounterPageState extends State<CounterPage> {
-  int _counter = 0;
-  Color _bgColor = Colors.white;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadCounter();
-    _loadBgColor();
-  }
-
-  _loadCounter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _counter = prefs.getInt('counter') ?? 0;
-    });
-  }
-
-  _incrementCounter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _counter++;
-      prefs.setInt('counter', _counter);
-    });
-  }
-
-  _loadBgColor() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _bgColor = Color(prefs.getInt('bgColor') ?? Colors.white.value);
-    });
-  }
-
-  _changeBgColor(Color color) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _bgColor = color;
-      prefs.setInt('bgColor', color.value);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: _bgColor,
-      appBar: AppBar(title: Text("Counter App")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Counter: $_counter'),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _incrementCounter,
-              child: Text('Increment Counter'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => _changeBgColor(Colors.blue),
-              child: Text('Change Background Color'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-```
-<p>
+     // Update methods for count and color, with SharedPreferences persistence
+     void incrementCount() { ... }
+     void changeBackgroundColor(Color color) { ... }
+   }
+   ```
+   <p>
 
  <img src="https://github.com/user-attachments/assets/679f5c7c-2899-4439-b5c2-2d912abbc347" width="22%" Height="35%">
  
