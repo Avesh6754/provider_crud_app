@@ -521,5 +521,79 @@ This code allows users to change themes on the profile page and saves the prefer
 
 https://github.com/user-attachments/assets/6958a874-9120-4158-aed4-f473102bcadf
 
+<h1 align="center">🔶🔸Todo App With SharePrefernce🔸🔶</h1>
+
+### To-Do App in Flutter with Shared Preferences for Data Persistence
+
+This Flutter To-Do app allows users to add, update, read, and delete tasks. Data is stored locally using the **Shared Preferences** package, ensuring that tasks persist between sessions without requiring a backend.
+
+#### Features
+- **Add Task:** Allows users to add new tasks with a title and description.
+- **Update Task:** Users can update existing tasks, modifying the title and description.
+- **Read Tasks:** Displays all saved tasks, even after closing and reopening the app.
+- **Delete Task:** Users can remove tasks individually.
+- **Data Persistence:** Utilizes Shared Preferences to store and retrieve task data locally.
+
+#### Key Code Snippets
+
+1. **Importing Necessary Packages**
+   ```dart
+   import 'package:flutter/material.dart';
+   import 'package:shared_preferences/shared_preferences.dart';
+   import 'dart:convert'; // For encoding and decoding JSON data
+   ```
+
+2. **Saving Data to Shared Preferences**
+   ```dart
+   Future<void> saveTaskList(List<Map<String, String>> tasks) async {
+     final prefs = await SharedPreferences.getInstance();
+     prefs.setString('taskList', jsonEncode(tasks)); // Encode list to JSON string
+   }
+   ```
+
+3. **Loading Data from Shared Preferences**
+   ```dart
+   Future<List<Map<String, String>>> loadTaskList() async {
+     final prefs = await SharedPreferences.getInstance();
+     String? tasksString = prefs.getString('taskList');
+     if (tasksString != null) {
+       return List<Map<String, String>>.from(jsonDecode(tasksString));
+     }
+     return [];
+   }
+   ```
+
+4. **Adding a New Task**
+   ```dart
+   void addTask(String title, String description) async {
+     List<Map<String, String>> tasks = await loadTaskList();
+     tasks.add({'title': title, 'description': description});
+     saveTaskList(tasks);
+   }
+   ```
+
+5. **Updating an Existing Task**
+   ```dart
+   void updateTask(int index, String newTitle, String newDescription) async {
+     List<Map<String, String>> tasks = await loadTaskList();
+     tasks[index] = {'title': newTitle, 'description': newDescription};
+     saveTaskList(tasks);
+   }
+   ```
+
+6. **Deleting a Task**
+   ```dart
+   void deleteTask(int index) async {
+     List<Map<String, String>> tasks = await loadTaskList();
+     tasks.removeAt(index);
+     saveTaskList(tasks);
+   }
+   ```
+
+    <p>
+  <img src="https://github.com/user-attachments/assets/1ca8a5f5-8cc6-4bdc-92f1-09dfb745e85e" width="22%" Height="35%">
+  <img src="https://github.com/user-attachments/assets/b919df99-2796-45f5-90fc-4c8230cd5093" width="22%" Height="35%">
+
+  </p>
 
 
