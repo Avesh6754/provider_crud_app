@@ -160,6 +160,31 @@ A simple counter app built using Flutter, with state persistence for the count a
 
 https://github.com/user-attachments/assets/4c5b8e61-ac82-4943-b96f-966f0efaa826
 
+
+
+<h1 align="center">🔶🔸Provider Tree🔸🔶</h1>
+
+
+### Provider Tree Process for a Counter App in Flutter
+In Flutter, the Provider package is used for efficient state management. The provider tree typically starts with a root widget wrapping the app, providing the state and logic needed to its descendants. Here’s a step-by-step flow for the provider tree process in a counter app:
+
+1. **Initialize Provider**: The root widget (usually `MyApp`) wraps `ChangeNotifierProvider`, which provides an instance of the counter model class.
+2. **State Updates**: The counter model class extends `ChangeNotifier` to handle state changes. When the counter value is incremented or decremented, `notifyListeners()` updates listeners in the widget tree.
+3. **Widget Rebuild**: The widgets that rely on the counter value listen to these changes and rebuild accordingly, reflecting the updated state.
+4. **Persistence with Shared Preferences**: Shared Preferences can store the counter's state, allowing it to persist even when the app is closed and reopened.
+
+### Sources for More Detail
+1. **Javatpoint - Flutter State Management**: This [source](https://www.javatpoint.com/flutter-state-management) provides a comprehensive guide on state management, including approaches like Provider, ChangeNotifier, and ScopedModel, to efficiently manage and rebuild widgets.
+
+2. **Medium - Lifecycle of a Stateful Widget**: This [article](https://medium.com/@hadiyaaamir222/lifecycle-of-a-stateful-widget-aece2d56c946) outlines the lifecycle of Stateful widgets, which is relevant when understanding how Flutter manages widget states, including initialization, updating, and disposal.
+
+   <p>
+ 
+
+
+  <img src="https://github.com/user-attachments/assets/68f870d1-4dfb-400a-b996-96e8cd631780" width="22%" Height="35%">
+  </p>
+
 <h1 align="center">🔶🔸Intro Page With Share Preference🔸🔶</h1>
 
 
