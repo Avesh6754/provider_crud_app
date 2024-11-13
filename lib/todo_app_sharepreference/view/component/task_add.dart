@@ -25,6 +25,7 @@ class Task_Add extends StatelessWidget {
           child: Column(
             children: [
               Text('Add Task'),
+              SizedBox(height: 10,),
               TextFormField(
                 validator: (value) {
                   return value!.isEmpty
@@ -32,15 +33,9 @@ class Task_Add extends StatelessWidget {
                       : null;
                 },
                 controller: txtname,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     label: Text('Task'),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(
-                            color: Colors.blue, width: 2))),
-              ),
-              const SizedBox(
-                height: 20,
+                ),
               ),
               TextFormField(
                 validator: (value) {
@@ -50,13 +45,8 @@ class Task_Add extends StatelessWidget {
                 },
                 controller: txtid,
                 maxLines: 2,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   label: Text('Description'),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide:
-                    BorderSide(color: Colors.blue, width: 2),
-                  ),
                 ),
               ),
             ],
@@ -64,6 +54,9 @@ class Task_Add extends StatelessWidget {
         ),
       ),
       actions: [
+        TextButton(onPressed: () {
+          Navigator.of(context).pop();
+        }, child: Text('Cancel')),
         TextButton(
             onPressed: () {
               if (formkey.currentState!.validate()) {

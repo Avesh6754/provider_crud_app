@@ -18,13 +18,7 @@ final String label;
       maxLines: 2,
       decoration: InputDecoration(
         label:  Text('$label'),
-        border: OutlineInputBorder(
-          borderRadius:
-          BorderRadius.circular(10),
-          borderSide: const BorderSide(
-              color: Colors.blue,
-              width: 2),
-        ),
+
       ),
     );
   }

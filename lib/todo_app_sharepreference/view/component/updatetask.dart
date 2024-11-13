@@ -31,18 +31,19 @@ class UpdateTask extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextForm(name: txtname,label: 'Task',),
-              const SizedBox(
-                height: 20,
-              ),
+
               TextForm(name: txtid,label: 'Description',),
             ],
           ),
         ),
       ),
       actions: [
+        TextButton(onPressed: () {
+          Navigator.of(context).pop();
+        }, child: Text('Cancel')),
         TextButton(
             onPressed: () {
               if (formkey.currentState!
